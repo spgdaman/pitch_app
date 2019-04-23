@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from app import app
-from .forms import SignupForm, LoginForm
-from .models import User, Credentials
+from .forms import SignupForm, LoginForm, PitchForm
+from .models import User, Credentials, Pitch
 
 @app.route('/index')
 def index():
@@ -31,3 +31,12 @@ def login():
         new_login = Credentials(username,password)
 
     return render_template('login.html', login_form = login_form)
+
+@app.route('/user/username/new_pitch', methods=['GET','POST'])
+def new_pitch():
+    pitch_form = PitchForm()
+
+    if pitch_form .validate_on_submit():
+        pitch = pitch_form.new_pitch.data
+
+    return render_template('newpitch.html', pitch_form=pitch_form)

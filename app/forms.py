@@ -13,6 +13,10 @@ class SignupForm(FlaskForm):
 
 class LoginForm(FlaskForm):
 
-    username = StringField('username', validators=[Required()])
-    password = StringField('password', validators=[Required()])
+    username = StringField('Username', validators=[Required()])
+    password = StringField('Password', validators=[Required()])
     submit = SubmitField('Submit')
+
+class PitchForm(FlaskForm):
+    new_pitch = TextAreaField('Enter new pitch', validators=[Required()])
+    submit = SubmitField('submit')
