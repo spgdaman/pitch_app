@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from app import app
-from .forms import SignupForm
-from .models import User
+from .forms import SignupForm, LoginForm
+from .models import User, Credentials
 
 @app.route('/index')
 def index():
@@ -20,3 +20,14 @@ def signup():
         new_signee = User(first_name,last_name,email,username,password)
 
     return render_template('signup.html',form=form)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    login_form = LoginForm()
+
+    if login_form.validate_on_submit():
+        username = login_form.username.data
+        password = login_form.password.data
+        new_login = Credentials(username,password)
+
+    return render_template('login.html', login_form = login_form)
