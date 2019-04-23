@@ -1,6 +1,14 @@
 # Pitch App
 
-The project is about a one pitch website.
+The project is about a one pitch website where the user gets to do the following:
+* View other people's pitches
+* Upvote or Downvote other people's pitches
+* Sign in to leave a comment
+* Leave a comment on different pitches and leave feedback
+* Receive a welcoming email once signed up
+* View the pitches created in their profile page
+* Submit a pitch in any category
+* View pitches in different categories
 
 ## Installation
 
@@ -31,7 +39,9 @@ Clone or download the project using the [link](https://github.com/spgdaman/pitch
 * Python
 * Flask
 * Jinja
-* Bootstrap
+* HTML
+* CSS
+* Bootstrap 4
 * Postgresql
 
 ## Contact information
