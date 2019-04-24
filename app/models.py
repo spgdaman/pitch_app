@@ -1,6 +1,7 @@
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from . import login_manager
 
 class User:
     def __init__(self, firstname,lastname,email,username,password):
@@ -58,3 +59,7 @@ class Pitches(db.Model):
     upvote = db.Column(db.Integer)
     downvote = db.Column(db.Integer)
     user = db.relationship('Users',backref='pitches', lazy="dynamic")
+
+@login_manager.user_loader
+def load_user(user_id):
+    return Users.query.get(int(user_id))
