@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from app import app
 from .forms import SignupForm, LoginForm, PitchForm
 from .models import User, Credentials, Pitch
+from flask_login import login_required
 
 @app.route('/index')
 def index():
@@ -21,18 +22,8 @@ def signup():
 
     return render_template('signup.html',form=form)
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    login_form = LoginForm()
-
-    if login_form.validate_on_submit():
-        username = login_form.username.data
-        password = login_form.password.data
-        new_login = Credentials(username,password)
-
-    return render_template('login.html', login_form = login_form)
-
 @app.route('/user/username/new_pitch', methods=['GET','POST'])
+@login_required
 def new_pitch():
     pitch_form = PitchForm()
 

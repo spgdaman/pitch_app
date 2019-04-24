@@ -1,5 +1,6 @@
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
 class User:
     def __init__(self, firstname,lastname,email,username,password):
@@ -26,13 +27,13 @@ class Pitch:
     # def downvote(self):
     #     self.downvote -= 1
 
-class Users(db.Model):
+class Users(UserMixin,db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key = True)
     firstname = db.Column(db.String(255))
     lastname = db.Column(db.String(255))
-    email = db.Column(db.String(255))
-    username = db.Column(db.String(255))
+    email = db.Column(db.String(255), unique = True, index = True)
+    username = db.Column(db.String(255), index = True)
     password = db.Column(db.String(255))
     pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'))
 
