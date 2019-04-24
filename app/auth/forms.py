@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, SubmitField
+from wtforms import StringField, TextAreaField, SubmitField, PasswordField
 from wtforms.validators import Required
 
 class SignupForm(FlaskForm):
@@ -8,7 +8,7 @@ class SignupForm(FlaskForm):
     last_name = StringField('Last name', validators=[Required()])
     email = StringField('Email', validators=[Required()])
     username = StringField('Username', validators=[Required()])
-    password = StringField('Password', validators=[Required()])
+    password = PasswordField('Password', validators=[Required()])
     submit = SubmitField('Submit')
 
 class LoginForm(FlaskForm):
@@ -16,7 +16,3 @@ class LoginForm(FlaskForm):
     username = StringField('Username', validators=[Required()])
     password = StringField('Password', validators=[Required()])
     submit = SubmitField('Submit')
-
-class PitchForm(FlaskForm):
-    new_pitch = TextAreaField('Enter new pitch', validators=[Required()])
-    submit = SubmitField('submit')
