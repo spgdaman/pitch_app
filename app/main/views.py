@@ -2,7 +2,7 @@
 from . import main
 from flask import Flask, render_template
 from .forms import PitchForm
-from ..models import Pitch
+# from ..models import Pitch
 from flask_login import login_required
 
 @main.route('/index')

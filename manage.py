@@ -9,6 +9,7 @@ migrate = Migrate(app,db)
 manager = Manager(app)
 
 manager.add_command('server',Server)
+#manager.add_command('migrate',MigrateCommand)
 
 @manager.shell
 def make_shell():

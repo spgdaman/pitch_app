@@ -11,16 +11,16 @@ from . import login_manager
 #         self.username = username
 #         self.password = password
 
-class Credentials:
-    def __init__(self,username,password):
-        self.username = username
-        self.password = password
+# class Credentials:
+#     def __init__(self,username,password):
+#         self.username = username
+#         self.password = password
 
-class Pitch:
-    def __init__(self, pitch):
-        self.pitch = pitch
-        self.upvote = upvote
-        self.downvote = downvote
+# class Pitch:
+#     def __init__(self, pitch):
+#         self.pitch = pitch
+#         self.upvote = upvote
+#         self.downvote = downvote
 
     # def upvote(self):
     #     self.upvote += 1
@@ -35,7 +35,7 @@ class Users(UserMixin,db.Model):
     lastname = db.Column(db.String(255))
     email = db.Column(db.String(255), unique = True, index = True)
     username = db.Column(db.String(255), index = True)
-    password = db.Column(db.String(255))
+    pass_secure = db.Column(db.String(255))
     pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'))
 
     @property

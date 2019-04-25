@@ -3,8 +3,14 @@
 
 {% block content %}
     <div class="container">
-        <center>
-            {{wtf.quick_form(login_form)}}
-        </center>
+        <div class="row">
+            <div class="col-md-4"> </div>
+            <div class="col-md-4">
+            <center>
+                {{wtf.quick_form(login_form)}}
+            </center>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
     </div>
 {% endblock %}
