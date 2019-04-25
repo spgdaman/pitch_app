@@ -36,6 +36,8 @@ class Users(UserMixin,db.Model):
     email = db.Column(db.String(255), unique = True, index = True)
     username = db.Column(db.String(255), index = True)
     pass_secure = db.Column(db.String(255))
+    bio = db.Column(db.String(255))
+    profile_pic_path = db.Column(db.String())
     pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'))
 
     @property
@@ -58,6 +60,7 @@ class Pitches(db.Model):
     pitch = db.Column(db.String(255))
     upvote = db.Column(db.Integer)
     downvote = db.Column(db.Integer)
+    comment = db.Column(db.String(255))
     user = db.relationship('Users',backref='pitches', lazy="dynamic")
 
 @login_manager.user_loader

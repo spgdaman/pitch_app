@@ -24,13 +24,14 @@
                         <a href="/signup">Sign Up</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav mr-auto">
+                <!-- <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a href="/login">Log In</a>
                     </li>
-                </ul>
+                </ul> -->
                 <ul class="nav navbar-nav navbar-right">
                     {% if current_user.is_authenticated %}
+                    <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
                     <li style="color:white;padding:15px;">{{current_user.username}}</li>
                     <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
                     {% else %}
